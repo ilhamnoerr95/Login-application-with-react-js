@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
 import konfigurasi from 'config/config';
+// import {  useNavigate } from "react-router-dom";
 
 
 const initialState = {
@@ -14,6 +15,8 @@ const initialState = {
 // CALLING API LOGIN 
 // eslint-disable-next-line no-unused-vars
 export const submitAuthentic = (email, password) => async (dispatch) => {
+  // const navigate = useNavigate();
+
   // console.log(`email: ${email}, \n password:${password} `)
   let data = {
     email,
@@ -32,16 +35,15 @@ export const submitAuthentic = (email, password) => async (dispatch) => {
   };
   axios(config)
   .then((response)=>{
-   
-      localStorage.setItem("token", JSON.stringify(response.data.token))
       dispatch(setToken(response.data.token));
+      localStorage.setItem("token", JSON.stringify(response.data.token))
+      dispatch(setWarningLogin(""))
       dispatch(screenLoading(true))
-    
-    
   })
-  .catch((error)=>{
+  .catch( (error)=>{
     console.log(error.response.data.error)
     dispatch(setWarningLogin(error.response.data.error))
+    // await navigate("/users")
   })
 }
 
@@ -80,6 +82,7 @@ export const { increment,
 export const selectEmail = (state)=>  state.auth.email
 export const selectPassword = (state)=> state.auth.password
 export const getToken = (state)=> state.auth.token
+export const warningLogin = (state)=> state.auth.warningLogin
 export const loadingState = (state)=> state.auth.loadingState
 
 

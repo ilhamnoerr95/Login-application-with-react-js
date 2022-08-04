@@ -10,7 +10,7 @@ import NotFound from 'common/components/404';
 
 
 function App() {
-  const getToken = localStorage.getItem("token")
+  // const getToken = localStorage.getItem("token")
 
 
   return (
@@ -22,7 +22,7 @@ function App() {
       </Switch>
 
       <Switch>
-        {!getToken ? <Route path="/" element={<Login/>}/> : ""}
+        <Route path="/" element={<Login/>}/> 
         <Route path="/users/*" element={<UserRoutes/>}/>
         {/* NOT FOUND PAGE */}
         <Route path="*" element={<NotFound/>}></Route>

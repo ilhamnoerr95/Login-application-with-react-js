@@ -3,16 +3,20 @@ import './_login.scss'
 import React, {useState,useEffect} from 'react';
 import {  useDispatch } from 'react-redux';
 // eslint-disable-next-line no-unused-vars
-import {typeEmail,typePassword,submitAuthentic, setToken, setWarningLogin} from 'redux/authentication'
+import {typeEmail,typePassword,submitAuthentic, setToken, setWarningLogin, warningLogin} from 'redux/authentication'
 // eslint-disable-next-line no-unused-vars
 import {useSelector} from 'react-redux'
 // eslint-disable-next-line no-unused-vars
 import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
+// eslint-disable-next-line no-unused-vars
   const navigate = useNavigate();
   const dispatch = useDispatch()
   const getToken = useSelector(setToken)
+// eslint-disable-next-line no-unused-vars
+  const warning = useSelector(warningLogin)
+
   // console.log("ini email", email)
   // const getToken = localStorage.getItem("token")
   
@@ -23,8 +27,9 @@ const Login = () => {
   useEffect(()=>{
     dispatch(typeEmail(text.email))
     dispatch(typePassword(text.password))
+    dispatch(submitAuthentic(text.email, text.password))
   
-  })
+  },[text.email,text.password])
 
   const handleLogin = (e,input)=>{
     const value = e.target.value
@@ -34,13 +39,16 @@ const Login = () => {
   const submitLogin = async (e)=>{
     e.preventDefault()
     if(getToken){
-      setTimeout(()=>{
-        dispatch(setWarningLogin(""))
-        dispatch(setToken(localStorage.getItem("token")))
-        dispatch(submitAuthentic(text.email, text.password))
-          
-        setTimeout(()=>{
-            navigate("/users")  
+      setTimeout(async ()=>{
+        // dispatch(submitAuthentic(text.email, text.password))
+        // dispatch(setToken(localStorage.getItem("token")))
+        // dispatch(setWarningLogin(""))
+        
+        setTimeout(async ()=>{
+          if(!warning){
+            await navigate("/users") 
+          }
+           
           },1000)
       },1000)
     } 
