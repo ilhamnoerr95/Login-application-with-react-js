@@ -13,6 +13,7 @@ const Login = () => {
 // eslint-disable-next-line no-unused-vars
   const navigate = useNavigate();
   const dispatch = useDispatch()
+// eslint-disable-next-line no-unused-vars
   const token = useSelector(getToken)
 // eslint-disable-next-line no-unused-vars
   const warning = useSelector(warningLogin)
@@ -40,20 +41,23 @@ const Login = () => {
 
   const submitLogin = async (e)=>{
     e.preventDefault()
-    if(token){
-      setTimeout(async ()=>{
-        // dispatch(submitAuthentic(text.email, text.password))
-        // dispatch(setToken(localStorage.getItem("token")))
-        // dispatch(setWarningLogin(""))
+    if(!warning){
+      await navigate("/users") 
+    }
+    // if(token){
+    //   setTimeout(async ()=>{
+    //     // dispatch(submitAuthentic(text.email, text.password))
+    //     // dispatch(setToken(localStorage.getItem("token")))
+    //     // dispatch(setWarningLogin(""))
         
-        setTimeout(async ()=>{
-          if(!warning){
-            await navigate("/users") 
-          }
+    //     setTimeout(async ()=>{
+    //       if(!warning){
+    //         await navigate("/users") 
+    //       }
            
-          },1000)
-      },1000)
-    } 
+    //       },1000)
+    //   },1000)
+    // } 
      
   }
   return (
