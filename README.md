@@ -1,3 +1,15 @@
+## BRIEF SUMMARY:
+Pengambilan API diambil dari link [Create React App](https://reqres.in/) untuk id hanya bisa digunakan 
+dari data API yg ada di regres.
+
+## DOKUMENTASI SEDERHANA:
+Pada pembuatan login ditambah dengan data list yang diambil dari API [Create React App](https://reqres.in/)
+menggunakan framework React js, yang di mana beberapa library yang di instal seperti redux dkk sebagai pendukungan
+terbentuknya aplikasi. 
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

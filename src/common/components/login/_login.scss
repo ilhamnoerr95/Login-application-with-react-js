@@ -1,0 +1,28 @@
+@import 'styles/_text.scss';
+
+.coba{
+    background-color: green;
+    @include tablet{
+        background-color: red;
+    }
+    h1{
+        color:$primary;
+        @include tablet{
+            color: blueviolet;
+        }
+    }
+}
+
+
+#form-login{
+    // left      : 50%;
+    // top       : 50%;
+    // position  : absolute;
+    // transform : translate(-50%, -50%);
+    // margin        : 0;
+    // padding       : 0;
+    display       : grid;
+    place-content : center;
+    min-height    : 100vh;
+}
+
