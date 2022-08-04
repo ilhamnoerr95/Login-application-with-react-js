@@ -45,7 +45,7 @@ const UserList = ()=> {
       </div> */}
     {!loadingScreen ? 
         (
-        <ReactLoading className='container row mx-auto' type="bars" color="navy" height={200} width={200} />
+        <ReactLoading className='container row mx-auto' type="bars" color="lightblue" height={200} width={200} />
         // {View}
         ):
         (<div className='container row mx-auto'>
