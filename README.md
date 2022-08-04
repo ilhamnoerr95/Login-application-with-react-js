@@ -7,7 +7,14 @@ Pada pembuatan login ditambah dengan data list yang diambil dari API [Create Rea
 menggunakan framework React js, yang di mana beberapa library yang di instal seperti redux dkk sebagai pendukungan
 terbentuknya aplikasi. 
 
+1. slicing awal terlebih dahulu
+2. buat folderisasi
+3. set up redux
+4. setup Routes
+5. buat2 fungsi untuk setiap component
+6. pengambilan API melalui redux file 
 
+fungsi dari login web ini saya membuat trigger/parameter token sebagai penampilan data.
 
 
 # Getting Started with Create React App

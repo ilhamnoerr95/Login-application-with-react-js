@@ -12,14 +12,14 @@ import DetailUser from 'common/components/list/DetailUser';
 const Link = () => {
 //   const navigate = useNavigate();
 //     const token = useSelector(getToken)
-//     useEffect(()=>{
-//         if(!token ||!localToken ){
-//             navigate("/")
-//         } 
-//         if(token || localToken){
-//             navigate("/users")
-//         }
-//     },[])
+    // useEffect(()=>{
+    //     if(!token ||!localToken ){
+    //         navigate("/")
+    //     } 
+    //     if(token || localToken){
+    //         navigate("/users")
+    //     }
+    // },[""])
 
     return  (
     <Switch>    

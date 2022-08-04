@@ -3,7 +3,7 @@ import './_login.scss'
 import React, {useState,useEffect} from 'react';
 import {  useDispatch } from 'react-redux';
 // eslint-disable-next-line no-unused-vars
-import {typeEmail,typePassword,submitAuthentic, setToken, setWarningLogin, warningLogin} from 'redux/authentication'
+import {typeEmail,typePassword,submitAuthentic, setToken,getToken, setWarningLogin, warningLogin} from 'redux/authentication'
 // eslint-disable-next-line no-unused-vars
 import {useSelector} from 'react-redux'
 // eslint-disable-next-line no-unused-vars
@@ -13,12 +13,10 @@ const Login = () => {
 // eslint-disable-next-line no-unused-vars
   const navigate = useNavigate();
   const dispatch = useDispatch()
-  const getToken = useSelector(setToken)
+  const token = useSelector(getToken)
 // eslint-disable-next-line no-unused-vars
   const warning = useSelector(warningLogin)
-
-  // console.log("ini email", email)
-  // const getToken = localStorage.getItem("token")
+  const localToken = JSON.parse(localStorage.getItem("token"))
   
   const [text,setUpdate] = useState({
     email:"",
@@ -28,7 +26,11 @@ const Login = () => {
     dispatch(typeEmail(text.email))
     dispatch(typePassword(text.password))
     dispatch(submitAuthentic(text.email, text.password))
-  
+    dispatch(setToken(localToken))
+    // if(tokenLocal){
+
+    // }
+    
   },[text.email,text.password])
 
   const handleLogin = (e,input)=>{
@@ -38,7 +40,7 @@ const Login = () => {
 
   const submitLogin = async (e)=>{
     e.preventDefault()
-    if(getToken){
+    if(token){
       setTimeout(async ()=>{
         // dispatch(submitAuthentic(text.email, text.password))
         // dispatch(setToken(localStorage.getItem("token")))
