@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 // import './index.css';
 import './styles/_global.scss'
-import MainLayout from './common/components/layouts/MainLayout';
+import MainLayout from './common/layouts/MainLayout';
 // import reportWebVitals from './reportWebVitals';
 import {store} from './redux/store';
 import {Provider} from 'react-redux';
